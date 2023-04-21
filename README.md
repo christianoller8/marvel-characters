@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Typescript">
 </p>
 <br>
-
+<mat-spinner [diameter] = "50">
 
 > This project was generated with
 > · Angular CLI: 15.2.5
