@@ -11,4 +11,13 @@ export class LocalStorageService {
   setLanguage(value: string) {
     return localStorage.setItem("lang", value);
   }
+
+  setPublicKey(value: string){
+    return localStorage.setItem("key", value);
+  }
+
+  getPublicKey() {
+    return localStorage.getItem("key");
+  }
+
 }
