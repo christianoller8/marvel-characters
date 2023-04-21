@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <a class="navbar-brand" href="#">
+        <img class="logo" src="assets/images/logo.png" alt="">
+    </a>
+
+    <div class="lang">
+        <select
+          class="form-control"
+          #selectedLang
+          (change)="switchLang(selectedLang.value)">
+          <option
+            *ngFor="let lang of translate.getLangs()"
+            [value]="lang"
+            [selected]="lang === activeLang">
+            {{ lang | uppercase }}
+          </option>
+        </select>
+      </div>
+</nav>
