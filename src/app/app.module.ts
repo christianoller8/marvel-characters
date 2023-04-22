@@ -17,10 +17,16 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { BreadcrumbComponent } from "./core/components/breadcrumb/breadcrumb.component";
 import { BackButtonComponent } from "./shared/components/back-button/back-button.component";
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
-import { ComicPageComponent } from './features/comic/components/comic-page/comic-page.component';
+import { ComicPageComponent } from "./features/comic/components/comic-page/comic-page.component";
 
 @NgModule({
-  declarations: [AppComponent, BreadcrumbComponent, BackButtonComponent, NavbarComponent, ComicPageComponent],
+  declarations: [
+    AppComponent,
+    BreadcrumbComponent,
+    BackButtonComponent,
+    NavbarComponent,
+    ComicPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,7 +52,6 @@ import { ComicPageComponent } from './features/comic/components/comic-page/comic
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");

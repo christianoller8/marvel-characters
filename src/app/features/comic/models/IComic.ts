@@ -1,0 +1,43 @@
+import { ICharacterList } from "./ICharacterList";
+import { IComicDate } from "./IComicDate";
+import { IComicPrice } from "./IComicPrice";
+import { IComicSummary } from "./IComicSummary";
+import { ICreatorList } from "./ICreatorList";
+import { IEventList } from "./IEventList";
+import { IImage } from "./IImage";
+import { ISeriesSummary } from "./ISeriesSummary";
+import { IStoryList } from "./IStoryList";
+import { ITextObject } from "./ITextObject";
+import { IUrl } from "./IUrl";
+
+export interface IComic {
+  id?: number;
+  digitalId?: number;
+  title?: string;
+  issueNumber?: number;
+  variantDescription?: string;
+  description?: string;
+  modified?: Date;
+  isbn?: string;
+  upc?: string;
+  diamondCode?: string;
+  ean?: string;
+  issn?: string;
+  format?: string;
+  pageCount?: number;
+  textObjects?: ITextObject[];
+  resourceURI?: string;
+  urls?: IUrl[];
+  series?: ISeriesSummary;
+  variants?: IComicSummary[];
+  collections?: IComicSummary[];
+  collectedIssues?: IComicSummary[];
+  dates?: IComicDate[];
+  prices?: IComicPrice[];
+  thumbnail?: IImage;
+  images?: IImage[];
+  creators?: ICreatorList;
+  characters?: ICharacterList;
+  stories?: IStoryList;
+  events?: IEventList;
+}
