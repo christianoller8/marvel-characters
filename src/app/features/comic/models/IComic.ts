@@ -3,12 +3,12 @@ import { IComicDate } from "./IComicDate";
 import { IComicPrice } from "./IComicPrice";
 import { IComicSummary } from "./IComicSummary";
 import { ICreatorList } from "./ICreatorList";
-import { IEventList } from "./IEventList";
-import { IImage } from "./IImage";
+import { IEventList } from "../../../shared/models/IEventList";
+import { IImage } from "../../../shared/models/IImage";
 import { ISeriesSummary } from "./ISeriesSummary";
-import { IStoryList } from "./IStoryList";
+import { IStoryList } from "../../../shared/models/IStoryList";
 import { ITextObject } from "./ITextObject";
-import { IUrl } from "./IUrl";
+import { IUrl } from "../../../shared/models/IUrl";
 
 export interface IComic {
   id?: number;
