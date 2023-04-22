@@ -5,11 +5,12 @@ import { LocalStorageService } from "src/app/core/services/local-storage.service
 import { md5 } from "src/app/core/utils/utils";
 import { environment } from "src/environments/environment";
 import { IGetComics } from "../contracts/IGetComics";
+import { IGetCharacters } from "../contracts/IGetCharacters";
 
 @Injectable({
   providedIn: "root"
 })
-export class DataService implements IGetComics {
+export class DataService implements IGetComics, IGetCharacters {
   ts = "1";
   
   constructor(private http : HttpClient, private localStorageService : LocalStorageService) {}
@@ -24,9 +25,15 @@ export class DataService implements IGetComics {
   }
 
   getComics() : Observable<unknown>{
-    const url = this.buildURL("/v1/public/comics");
+    const url = this.buildURL("v1/public/comics");
 
     return this.http.get(url);
 
+  }
+
+  getCharacters() : Observable<unknown>{
+    const url = this.buildURL("v1/public/characters");
+
+    return this.http.get(url);
   }
 }
