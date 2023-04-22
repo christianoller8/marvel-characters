@@ -1,23 +1,15 @@
-<div
-  *ngFor="
-    let comic of comics
-      | paginate
-        : {
-            itemsPerPage: tableSize,
-            currentPage: pageIndex,
-            totalItems: count
-          };
-    let i = index
-  "
->
-  <h3>{{ comic.title }}</h3>
-  <img
-    src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
-    alt="{{ comic.title }}"
-  />
-  <p>{{ comic.description }}</p>
-</div>
 
-<pagination-controls
-  (pageChange)="handlePageChange($event)"
-></pagination-controls>
+
+  <div *ngFor="let comic of comics; let i = index" [ngClass]="{hidden: i>= comics.length/2 && hidden}">
+    
+    <h3>{{ comic.title }}</h3>
+    <img
+      src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
+      alt="{{ comic.title }}"
+    />
+    <p>{{ comic.description }}</p>
+  </div>
+
+  <button *ngIf="hidden" (click)="loadMore()">Load more</button>
+
+

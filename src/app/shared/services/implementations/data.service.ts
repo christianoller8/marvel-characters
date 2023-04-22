@@ -28,24 +28,18 @@ export class DataService implements IGetComics, IGetCharacters {
       .set("hash", this.hash);
   }
 
-  getComics(limit: number, index: number): Observable<unknown> {
+  getComics(limit: number): Observable<unknown> {
     const url = this.baseUrl + "v1/public/comics";
 
-    const params = this.setParams(limit, index);
+    const params = this.setParams(limit);
 
     return this.http.get(url, { params: params });
   }
 
-  setParams(limit: number, index: number) {
-    let offset = limit + limit * (index - 1);
-    if (index === 1) {
-      offset = 0;
-    }
-
+  setParams(limit: number) {
     let paramsExtended = this.params;
     paramsExtended = paramsExtended
       .set("limit", limit.toString())
-      .set("offset", offset.toString())
       .set("orderBy", "-onsaleDate");
     return paramsExtended;
   }

@@ -17,25 +17,26 @@ export class ComicListComponent implements OnInit {
   pageIndex = 1;
   count = 0;
 
+  hidden = true;
+  
   ngOnInit() {
     this.getComics(this.tableSize * 2);
   }
 
   getComics(nResults: number) {
     this.data
-      .getComics(nResults, this.pageIndex)
+      .getComics(nResults)
       .pipe(tap((error) => {}))
       .subscribe((data) => {
         const dataWrapper = data as IComicDataWrapper;
-
-        console.log(dataWrapper);
-
-        this.comics.push(...dataWrapper.data.results);
+        
+        this.comics = dataWrapper.data.results;
+        console.log(this.comics);
+        
       });
   }
 
-  handlePageChange(event: number) {
-    this.pageIndex = event;
-    this.getComics(this.tableSize);
+  loadMore(){
+    this.hidden = false;
   }
 }
