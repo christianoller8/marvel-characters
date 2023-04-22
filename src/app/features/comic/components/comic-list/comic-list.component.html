@@ -1,4 +1,15 @@
-<div *ngFor="let comic of comics">
+<div
+  *ngFor="
+    let comic of comics
+      | paginate
+        : {
+            itemsPerPage: tableSize,
+            currentPage: pageIndex,
+            totalItems: count
+          };
+    let i = index
+  "
+>
   <h3>{{ comic.title }}</h3>
   <img
     src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
@@ -6,3 +17,7 @@
   />
   <p>{{ comic.description }}</p>
 </div>
+
+<pagination-controls
+  (pageChange)="handlePageChange($event)"
+></pagination-controls>

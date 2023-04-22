@@ -19,10 +19,10 @@ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
 import { CharacterPageComponent } from "./features/characters/components/character-page/character-page.component";
 import { ComicPageComponent } from "./features/comic/components/comic-page/comic-page.component";
-import { ComicListComponent } from './features/comic/components/comic-list/comic-list.component';
+import { ComicListComponent } from "./features/comic/components/comic-list/comic-list.component";
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
-
   declarations: [
     AppComponent,
     BreadcrumbComponent,
@@ -33,9 +33,10 @@ import { ComicListComponent } from './features/comic/components/comic-list/comic
     ComicListComponent,
   ],
 
-imports: [
+  imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxPaginationModule,
     SandroFooterModule,
     BreadcrumbModule,
     HttpClientModule,
@@ -57,10 +58,6 @@ imports: [
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-
-
-
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");

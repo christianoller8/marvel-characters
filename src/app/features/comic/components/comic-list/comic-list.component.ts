@@ -13,21 +13,29 @@ export class ComicListComponent implements OnInit {
   constructor(private data: DataService) {}
 
   comics: IComic[] = [];
+  tableSize = 10;
+  pageIndex = 1;
+  count = 0;
 
   ngOnInit() {
-    this.getComics();
+    this.getComics(this.tableSize * 2);
   }
 
-  getComics() {
+  getComics(nResults: number) {
     this.data
-      .getComics()
+      .getComics(nResults, this.pageIndex)
       .pipe(tap((error) => {}))
       .subscribe((data) => {
         const dataWrapper = data as IComicDataWrapper;
 
-        console.log(dataWrapper.data?.results);
+        console.log(dataWrapper);
 
-        this.comics = dataWrapper.data?.results ?? [];
+        this.comics.push(...dataWrapper.data.results);
       });
+  }
+
+  handlePageChange(event: number) {
+    this.pageIndex = event;
+    this.getComics(this.tableSize);
   }
 }
