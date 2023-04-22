@@ -5,6 +5,6 @@ export interface IComicDataWrapper {
   status?: string;
   attributionText?: string;
   attributionHTML?: string;
-  data?: IComicDataContainer;
+  data: IComicDataContainer;
   etag?: string;
 }

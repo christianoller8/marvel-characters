@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { LocalStorageService } from "src/app/core/services/local-storage.service";
@@ -8,32 +8,49 @@ import { IGetComics } from "../contracts/IGetComics";
 import { IGetCharacters } from "../contracts/IGetCharacters";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class DataService implements IGetComics, IGetCharacters {
   ts = "1";
-  
-  constructor(private http : HttpClient, private localStorageService : LocalStorageService) {}
+  publicKey = this.localStorageService.getPublicKey()!;
+  hash = md5(this.ts + environment.privateKey + this.publicKey);
+  baseUrl = "http://gateway.marvel.com/";
 
-  buildURL(endpoint : string) : string{
-    const publicKey = this.localStorageService.getPublicKey();
-    const hash = md5(this.ts + environment.privateKey + publicKey);
+  params: HttpParams;
 
-    const url = "http://gateway.marvel.com/" + endpoint + "?ts=" + this.ts + "&apikey=" + publicKey + "&hash=" + hash;
-
-    return url;
+  constructor(
+    private http: HttpClient,
+    private localStorageService: LocalStorageService
+  ) {
+    this.params = new HttpParams()
+      .set("ts", this.ts)
+      .set("apikey", this.publicKey)
+      .set("hash", this.hash);
   }
 
-  getComics() : Observable<unknown>{
-    const url = this.buildURL("v1/public/comics");
+  getComics(limit: number, index: number): Observable<unknown> {
+    const url = this.baseUrl + "v1/public/comics";
 
-    return this.http.get(url);
+    const params = this.setParams(limit, index);
 
+    return this.http.get(url, { params: params });
   }
 
-  getCharacters() : Observable<unknown>{
-    const url = this.buildURL("v1/public/characters");
+  setParams(limit: number, index: number) {
+    let offset = limit + limit * (index - 1);
+    if (index === 1) {
+      offset = 0;
+    }
 
-    return this.http.get(url);
+    let paramsExtended = this.params;
+    paramsExtended = paramsExtended
+      .set("limit", limit.toString())
+      .set("offset", offset.toString())
+      .set("orderBy", "-onsaleDate");
+    return paramsExtended;
+  }
+
+  getCharacters(): Observable<unknown> {
+    return this.http.get(this.baseUrl);
   }
 }

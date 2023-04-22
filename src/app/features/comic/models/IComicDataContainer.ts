@@ -5,5 +5,5 @@ export interface IComicDataContainer {
   limit?: number;
   total?: number;
   count?: number;
-  results?: IComic[];
+  results: IComic[];
 }
