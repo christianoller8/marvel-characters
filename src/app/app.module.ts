@@ -19,6 +19,7 @@ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
 import { CharacterPageComponent } from "./features/characters/components/character-page/character-page.component";
 import { ComicPageComponent } from "./features/comic/components/comic-page/comic-page.component";
+import { ComicListComponent } from './features/comic/components/comic-list/comic-list.component';
 
 @NgModule({
 
@@ -29,6 +30,7 @@ import { ComicPageComponent } from "./features/comic/components/comic-page/comic
     NavbarComponent,
     ComicPageComponent,
     CharacterPageComponent,
+    ComicListComponent,
   ],
 
 imports: [

@@ -1,0 +1,8 @@
+<div *ngFor="let comic of comics">
+  <h3>{{ comic.title }}</h3>
+  <img
+    src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
+    alt="{{ comic.title }}"
+  />
+  <p>{{ comic.description }}</p>
+</div>
