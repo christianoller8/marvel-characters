@@ -1,0 +1,20 @@
+diff a/src/app/app.module.ts b/src/app/app.module.ts	(rejected hunks)
+@@ -17,10 +17,16 @@
+ import { BreadcrumbComponent } from "./core/components/breadcrumb/breadcrumb.component";
+ import { BackButtonComponent } from "./shared/components/back-button/back-button.component";
+ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
+-import { ComicPageComponent } from './features/comic/components/comic-page/comic-page.component';
++import { ComicPageComponent } from "./features/comic/components/comic-page/comic-page.component";
+ 
+ @NgModule({
+-  declarations: [AppComponent, BreadcrumbComponent, BackButtonComponent, NavbarComponent, ComicPageComponent],
++  declarations: [
++    AppComponent,
++    BreadcrumbComponent,
++    BackButtonComponent,
++    NavbarComponent,
++    ComicPageComponent,
++  ],
+   imports: [
+     BrowserModule,
+     AppRoutingModule,
