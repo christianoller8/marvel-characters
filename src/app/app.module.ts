@@ -21,6 +21,7 @@ import { CharacterPageComponent } from "./features/characters/components/charact
 import { ComicPageComponent } from "./features/comic/components/comic-page/comic-page.component";
 import { ComicListComponent } from "./features/comic/components/comic-list/comic-list.component";
 import { NgxPaginationModule } from "ngx-pagination";
+import { CharacterSelectorComponent } from './features/characters/components/character-selector/character-selector.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     ComicPageComponent,
     CharacterPageComponent,
     ComicListComponent,
+    CharacterSelectorComponent,
   ],
 
   imports: [
