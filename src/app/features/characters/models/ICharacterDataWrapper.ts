@@ -6,6 +6,6 @@ export interface ICharacterDataWrapper {
     copyright?: string;
     attributionText?: string;
     attributionHTML?: string;
-    data?: ICharacterDataContainer;
+    data: ICharacterDataContainer;
     etag?: string;
   }

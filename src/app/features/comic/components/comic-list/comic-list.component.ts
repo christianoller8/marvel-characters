@@ -18,14 +18,16 @@ export class ComicListComponent implements OnInit {
   count = 0;
 
   hidden = true;
+
+  order = "-onsaleDate";
   
   ngOnInit() {
-    this.getComics(this.tableSize * 2);
+    this.getComics(this.tableSize * 2, this.order);
   }
 
-  getComics(nResults: number) {
+  getComics(nResults: number, order : string) {
     this.data
-      .getComics(nResults)
+      .getComics(nResults, undefined ,order)
       .pipe(tap((error) => {}))
       .subscribe((data) => {
         const dataWrapper = data as IComicDataWrapper;
