@@ -10,11 +10,12 @@ h4 {
 }
 
 a {
-  color: #727272;
+  color: white;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #ffffff;
+  color: #727272;
   text-decoration: none;
 }
 
@@ -32,8 +33,4 @@ p {
 
 .marvel-logo {
   width: 150px;
-}
-
-ul .list-unstyled {
-  color: white;
 }
