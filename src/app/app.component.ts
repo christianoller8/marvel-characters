@@ -10,10 +10,8 @@ import { LocalStorageService } from "./core/services/local-storage.service";
 export class AppComponent {
   title = "template";
   name = environment.name;
-  publicKey = "ebe435710d107a3a1fc3115018320a9c";
 
   constructor(private localStorageService: LocalStorageService) {
     console.log(environment.name);
-    this.localStorageService.setPublicKey(this.publicKey);
   }
 }
