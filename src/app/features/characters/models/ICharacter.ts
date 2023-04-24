@@ -12,7 +12,7 @@ export interface ICharacter {
   modified?: Date;
   resourceURI?: string;
   urls?: IUrl[];
-  thumbnail?: IImage;
+  thumbnail: IImage;
   comics?: IComicList;
   stories?: IStoryList;
   events?: IEventList;
