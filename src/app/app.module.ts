@@ -21,6 +21,12 @@ import { CharacterPageComponent } from "./features/characters/components/charact
 import { ComicPageComponent } from "./features/comic/components/comic-page/comic-page.component";
 import { ComicListComponent } from "./features/comic/components/comic-list/comic-list.component";
 import { NgxPaginationModule } from "ngx-pagination";
+import { ComicComponent } from "./features/comic/components/comic/comic.component";
+import { CarouselComponent } from "./features/comic/components/carousel/carousel.component";
+import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
+import { HeaderComponent } from './features/header/header.component';
+import { FooterComponent } from './features/footer/footer.component';
+import { ComicDetailComponent } from './features/comic/components/comic-detail/comic-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +37,17 @@ import { NgxPaginationModule } from "ngx-pagination";
     ComicPageComponent,
     CharacterPageComponent,
     ComicListComponent,
+    ComicComponent,
+    CarouselComponent,
+    HeaderComponent,
+    FooterComponent,
+    ComicDetailComponent,
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MdbCarouselModule,
     NgxPaginationModule,
     SandroFooterModule,
     BreadcrumbModule,

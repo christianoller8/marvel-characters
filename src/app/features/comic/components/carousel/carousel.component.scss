@@ -1,0 +1,51 @@
+// CAROUSE PANTALLA MÁS PEQUEÑA
+// .carousel {
+//   max-width: 600px;
+//   max-height: 400px;
+// }
+
+// ICONOS DE NEXT Y PREV
+.carousel-control-prev,
+.carousel-control-next {
+  width: 7%;
+  font-size: 40px;
+  color: #fff; /* color del ícono */
+  opacity: 1; /* hacer que el botón sea siempre visible */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 80px; /* ancho del icono */
+  height: 80px; /* alto del icono */
+}
+
+//INDICADORES
+.carousel-indicators button {
+  width: 20px; /* ancho de los indicadores */
+  height: 20px; /* alto de los indicadores */
+  border-radius: 50%; /* hacer que los indicadores sean circulares */
+  background-color: #ff0000; /* color de fondo rojo */
+  border: none; /* quitar el borde */
+  margin: 0 5px; /* margen entre los indicadores */
+}
+
+.carousel-indicators button.active {
+  width: 25px; /* ancho del indicador activo */
+  height: 25px; /* alto del indicador activo */
+  background-color: #ffffff; /* color de fondo blanco para el indicador activo */
+  border: none; /* quitar el borde */
+  margin: 0 5px; /* margen entre los indicadores */
+}
+
+//FILTRO IMAGEN
+
+.carousel-inner img {
+  filter: brightness(50%);
+}
+
+//ALTURA CARROUSEL
+
+#carouselExampleIndicators .carousel-inner img {
+  max-height: 50vh;
+  object-fit: cover;
+}

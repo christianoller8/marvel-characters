@@ -1,0 +1,124 @@
+header {
+  background-color: #202020;
+  color: #fff;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 10px; /* se agregó un margen derecho de 10px */
+}
+
+.user-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  line-height: 40px;
+  margin-left: 10px; /* se agregó un margen izquierdo de 10px */
+}
+
+.logo img {
+  max-width: 60px;
+  cursor: pointer;
+}
+
+.search input[type="text"] {
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search button[type="submit"] {
+  background-color: #fff;
+  color: #ed1d24;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search {
+  margin-right: 30px;
+}
+
+.search svg {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.bottom-row {
+  background-color: #222;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Bangers", cursive;
+}
+
+.top-row,
+nav {
+  border-top: 1px solid #7a7979;
+}
+
+nav li:hover {
+  border-bottom: 2px solid #ed1d24;
+}
+
+/* Media queries para hacer el header responsive */
+
+@media screen and (max-width: 768px) {
+  .user-info {
+    margin-left: 10px;
+  }
+
+  .search {
+    margin-right: 10px;
+  }
+
+  nav li {
+    margin-right: 10px;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+}

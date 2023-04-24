@@ -1,0 +1,31 @@
+<div class="container info-comic" *ngFor="let comic of comics">
+  <div class="row">
+    <div class="col">
+      <img
+        src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
+        class="card-img-top img-fluid h-100"
+        alt="{{ comic.title }}"
+      />
+    </div>
+    <!-- <div class="comic-text col">
+      <h2>{{ comic.title }}</h2>
+      <h5>Published:</h5>
+      <p></p>
+      <h5>Writter:</h5>
+      <p>{{ comic.creators.items.name }}</p>
+      <h5>Penciller:</h5>
+      <p>{{ comic.creators.items.name }}</p>
+      <h5>Cover Artist:</h5>
+      <p></p>
+      <p>{{ comic.description }}</p>
+    </div> -->
+  </div>
+</div>
+
+<div
+  class="background"
+  *ngFor="let comic of comics"
+  [style.background-image]="
+    'url(' + comic!.thumbnail?.path + '.' + comic!.thumbnail?.extension + ')'
+  "
+></div>
