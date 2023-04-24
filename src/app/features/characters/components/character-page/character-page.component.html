@@ -1,1 +1,13 @@
-<p>character-page works!</p>
+<div class="char-collection">
+  <div class="char-item"
+    *ngFor="
+      let character of characters
+        | paginate
+          : { itemsPerPage: 10, currentPage: currentPage, totalItems: total }
+    "
+  >
+    <app-character-selector [character]="character"></app-character-selector>
+  </div>
+  <pagination-controls (pageChange)="changePage($event)"></pagination-controls>
+
+</div>

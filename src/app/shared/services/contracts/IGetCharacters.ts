@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
 
 export interface IGetCharacters{
-    getCharacters() : Observable<unknown>
+    getCharacters(limit?: number, offset?:number, order?: string) : Observable<unknown>
 }
