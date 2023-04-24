@@ -1,0 +1,29 @@
+.char-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.char-item {
+  $margin: 1%;
+  $width: 20%;
+
+  margin: $margin;
+  width: calc($width - $margin * (100% / $width));
+
+  @media (max-width: 900px) {
+    $width: 30%;
+    width: $width;
+  }
+
+  @media (max-width : 500px){
+    $width: 40%;
+    width: $width;
+  }
+
+  @media (max-width: 300px){
+    $width: 100%;
+    width: $width;
+  }
+
+}
