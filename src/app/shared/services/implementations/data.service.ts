@@ -12,8 +12,7 @@ import { IGetCharacters } from "../contracts/IGetCharacters";
 })
 export class DataService implements IGetComics, IGetCharacters {
   ts = "1";
-  publicKey = this.localStorageService.getPublicKey()!;
-  hash = md5(this.ts + environment.privateKey + this.publicKey);
+  hash = md5(this.ts + environment.privateKey + environment.publicKey);
   baseUrl = "http://gateway.marvel.com/";
 
   params: HttpParams;
@@ -24,7 +23,7 @@ export class DataService implements IGetComics, IGetCharacters {
   ) {
     this.params = new HttpParams()
       .set("ts", this.ts)
-      .set("apikey", this.publicKey)
+      .set("apikey", environment.publicKey)
       .set("hash", this.hash);
   }
 
