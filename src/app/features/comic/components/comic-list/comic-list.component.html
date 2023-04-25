@@ -1,1 +1,28 @@
-<app-comic></app-comic>
+<div class="container title">
+  <div class="row">
+    <div class="col text-center">
+      <h2>{{ title }}</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="comic-list">
+    <div class="comic-item"
+      *ngFor="let comic of comics; let i = index"
+      [ngClass]="{ hidden: i >= comics.length / 2 && hidden }"
+    >
+      <app-comic [comic]="comic"></app-comic>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-danger" *ngIf="hidden" (click)="loadMore()">
+        Load more
+      </button>
+    </div>
+  </div>
+</div>

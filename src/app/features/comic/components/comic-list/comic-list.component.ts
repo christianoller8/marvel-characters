@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { tap } from "rxjs";
 import { DataService } from "src/app/shared/services/implementations/data.service";
 import { IComicDataWrapper } from "../../models/IComicDataWrapper";
 import { IComic } from "../../models/IComic";
+import { IRequestParams } from "src/app/shared/models/IRequestParams";
+import { COMIC_TABLE_SIZE, DEFAULT_ORDER_COMICS } from "src/app/core/constants/constants";
 
 @Component({
   selector: "app-comic-list",
@@ -10,24 +12,27 @@ import { IComic } from "../../models/IComic";
   styleUrls: ["./comic-list.component.scss"],
 })
 export class ComicListComponent implements OnInit {
-  constructor(private data: DataService) {}
 
+  @Input() title = "";
+  reqParams : IRequestParams = {} as IRequestParams;
   comics: IComic[] = [];
-  tableSize = 10;
   pageIndex = 1;
   count = 0;
-
+  
   hidden = true;
-
-  order = "-onsaleDate";
-
-  ngOnInit() {
-    this.getComics(this.tableSize * 2, this.order);
+ 
+  constructor(private data: DataService) {
+    this.reqParams.limit = COMIC_TABLE_SIZE * 2;
+    this.reqParams.order = DEFAULT_ORDER_COMICS;
   }
 
-  getComics(nResults: number, order: string) {
+  ngOnInit() {
+    this.getComics(this.reqParams);
+  }
+
+  getComics(reqParams : IRequestParams) {
     this.data
-      .getComics(nResults, undefined, order)
+      .getComics(reqParams)
       .pipe(tap((error) => {}))
       .subscribe((data) => {
         const dataWrapper = data as IComicDataWrapper;

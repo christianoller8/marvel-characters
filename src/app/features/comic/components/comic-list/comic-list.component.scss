@@ -1,0 +1,15 @@
+.hidden{
+    display: none;
+}
+
+.comic-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.comic-item{
+    width: 20%;
+    margin: 5px;
+}
