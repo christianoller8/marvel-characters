@@ -1,5 +1,6 @@
 import { Observable } from "rxjs";
+import { IRequestParams } from "../../models/IRequestParams";
 
 export interface IGetComics {
-  getComics(limit?: number, offset?:number, order?: string): Observable<unknown>;
+  getComics(reqParams:IRequestParams): Observable<unknown>;
 }

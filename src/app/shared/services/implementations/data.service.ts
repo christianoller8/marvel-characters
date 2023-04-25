@@ -6,6 +6,7 @@ import { md5 } from "src/app/core/utils/utils";
 import { environment } from "src/environments/environment";
 import { IGetComics } from "../contracts/IGetComics";
 import { IGetCharacters } from "../contracts/IGetCharacters";
+import { IRequestParams } from "../../models/IRequestParams";
 
 @Injectable({
   providedIn: "root",
@@ -18,8 +19,7 @@ export class DataService implements IGetComics, IGetCharacters {
   params: HttpParams;
 
   constructor(
-    private http: HttpClient,
-    private localStorageService: LocalStorageService
+    private http: HttpClient
   ) {
     this.params = new HttpParams()
       .set("ts", this.ts)
@@ -28,41 +28,41 @@ export class DataService implements IGetComics, IGetCharacters {
   }
 
   getComics(
-    limit?: number,
-    offset?: number,
-    order?: string
+    reqParams:IRequestParams
   ): Observable<unknown> {
     const url = this.baseUrl + "v1/public/comics";
 
-    const params = this.setParams(limit, offset, order);
+    const params = this.setParams(reqParams);
 
     return this.http.get(url, { params: params });
   }
 
   getCharacters(
-    limit?: number,
-    offset?: number,
-    order?: string
+    reqParams:IRequestParams
   ): Observable<unknown> {
     const url = this.baseUrl + "v1/public/characters";
-    const params = this.setParams(limit, offset, order);
+    const params = this.setParams(reqParams);
 
     return this.http.get(url, { params: params });
   }
 
-  setParams(limit?: number, offset?: number, order?: string) {
+  setParams(reqParams : IRequestParams) {
     let paramsExtended = this.params;
 
-    if (limit) {
-      paramsExtended = paramsExtended.set("limit", limit.toString());
+    if (reqParams.limit) {
+      paramsExtended = paramsExtended.set("limit", reqParams.limit.toString());
     }
 
-    if (offset) {
-      paramsExtended = paramsExtended.set("offset", offset.toString());
+    if (reqParams.offset) {
+      paramsExtended = paramsExtended.set("offset", reqParams.offset.toString());
     }
 
-    if (order) {
-      paramsExtended = paramsExtended.set("orderBy", order.toString());
+    if (reqParams.order) {
+      paramsExtended = paramsExtended.set("orderBy", reqParams.order.toString());
+    }
+
+    if (reqParams.beginWith){
+      paramsExtended = paramsExtended.set("orderBy", reqParams.beginWith.toString());
     }
 
     return paramsExtended;

@@ -1,5 +1,6 @@
 import { Observable } from "rxjs";
+import { IRequestParams } from "../../models/IRequestParams";
 
 export interface IGetCharacters{
-    getCharacters(limit?: number, offset?:number, order?: string) : Observable<unknown>
+    getCharacters(reqParams:IRequestParams) : Observable<unknown>
 }

@@ -6,5 +6,10 @@ import { Component } from "@angular/core";
   styleUrls: ["./comic-page.component.scss"],
 })
 export class ComicPageComponent {
-  constructor() {}
+  
+  titleList : string[] = [];
+  
+  constructor() {
+    this.titleList[0] = "APRIL NEW RELEASES";
+  }
 }

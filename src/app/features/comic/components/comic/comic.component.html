@@ -1,45 +1,13 @@
-<div class="container title">
-  <div class="row">
-    <div class="col text-center">
-      <h2>APRIL 8: NEW RELEASES</h2>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div
-      class="card overflow-hidden mx-3"
-      style="width: 18rem"
-      *ngFor="let comic of comics; let i = index"
-      [ngClass]="{ hidden: i >= comics.length / 2 && hidden }"
-      [style.background-image]="
-        'url(' +
-        comic!.thumbnail?.path +
-        '.' +
-        comic!.thumbnail?.extension +
-        ')'
-      "
-    >
-      <img
-        src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
-        class="card-img-top img-fluid h-100"
-        alt="{{ comic.title }}"
-      />
-      <!-- <div class="card-body">
-        <h5 class="card-title">{{ comic.title }}</h5>
-        <p class="card-text">{{ comic.description }}</p>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <button class="btn btn-danger" *ngIf="hidden" (click)="loadMore()">
-        Load more
-      </button>
-    </div>
-  </div>
+<div
+  class="card overflow-hidden mx-3"
+>
+  <img
+    src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
+    class="card-img-top img-fluid h-100"
+    alt="{{ comic.title }}"
+  />
+  <!-- <div class="card-body">
+          <h5 class="card-title">{{ comic.title }}</h5>
+          <p class="card-text">{{ comic.description }}</p>
+        </div> -->
 </div>

@@ -1,9 +1,19 @@
+
+<div class="selector" >
+  <input type="text" #search (input)="searchName(search.value)">
+    <select name="order" #order (change)="changeOrder(order.value)">
+        <option value="name">A-Z</option>
+        <option value="-name">Z-A</option>
+    </select>
+
+</div>
+
 <div class="char-collection">
   <div class="char-item"
     *ngFor="
       let character of characters
         | paginate
-          : { itemsPerPage: 10, currentPage: currentPage, totalItems: total }
+          : { itemsPerPage: reqParams.limit , currentPage: currentPage, totalItems: total }
     "
   >
     <app-character-selector [character]="character"></app-character-selector>
