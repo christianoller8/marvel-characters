@@ -4,7 +4,8 @@ import { DataService } from "src/app/shared/services/implementations/data.servic
 import { IComicDataWrapper } from "../../models/IComicDataWrapper";
 import { IComic } from "../../models/IComic";
 import { IRequestParams } from "src/app/shared/models/IRequestParams";
-import { COMIC_TABLE_SIZE, DEFAULT_ORDER_COMICS } from "src/app/core/constants/constants";
+import { COMIC_TABLE_SIZE} from "src/app/core/constants/constants";
+import { IListComic } from "../../models/IListComics";
 
 @Component({
   selector: "app-comic-list",
@@ -13,7 +14,7 @@ import { COMIC_TABLE_SIZE, DEFAULT_ORDER_COMICS } from "src/app/core/constants/c
 })
 export class ComicListComponent implements OnInit {
 
-  @Input() title = "";
+  @Input()info: IListComic = {} as IListComic;
   reqParams : IRequestParams = {} as IRequestParams;
   comics: IComic[] = [];
   pageIndex = 1;
@@ -23,9 +24,10 @@ export class ComicListComponent implements OnInit {
  
   constructor(private data: DataService) {
     this.reqParams.limit = COMIC_TABLE_SIZE * 2;
-    this.reqParams.order = DEFAULT_ORDER_COMICS;
-  }
+    this.reqParams.order = this.info.order;
 
+  }
+  
   ngOnInit() {
     this.getComics(this.reqParams);
   }

@@ -44,6 +44,8 @@ export class CharacterPageComponent implements OnInit {
 
   searchName(beginWith: string) {
     this.reqParams.beginWith = beginWith;
+    this.reqParams.offset = 0;
+    this.currentPage = 1;
     this.getCharacters(this.reqParams);
   }
 
