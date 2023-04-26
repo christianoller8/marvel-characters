@@ -21,6 +21,7 @@ import { SharedModule } from "./shared/shared.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./shared/components/material/material.module";
 import { LoginComponent } from "./features/login/login/login.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -32,7 +33,7 @@ import { LoginComponent } from "./features/login/login/login.component";
     CharactersModule,
     SharedModule,
     MaterialModule,
-
+    ReactiveFormsModule,
     NgxPaginationModule,
     BreadcrumbModule,
     HttpClientModule,
