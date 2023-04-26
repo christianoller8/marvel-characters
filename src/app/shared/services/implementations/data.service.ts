@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { LocalStorageService } from "src/app/core/services/local-storage.service";
 import { md5 } from "src/app/core/utils/utils";
 import { environment } from "src/environments/environment";
 import { IGetComics } from "../contracts/IGetComics";
@@ -62,7 +61,7 @@ export class DataService implements IGetComics, IGetCharacters {
     }
 
     if (reqParams.beginWith){
-      paramsExtended = paramsExtended.set("orderBy", reqParams.beginWith.toString());
+      paramsExtended = paramsExtended.set("nameStartsWith", reqParams.beginWith.toString());
     }
 
     return paramsExtended;

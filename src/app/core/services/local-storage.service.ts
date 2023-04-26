@@ -4,12 +4,13 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class LocalStorageService {
-  getLanguage() {
-    return localStorage.getItem("lang");
-  }
-
+  
   setLanguage(value: string) {
     return localStorage.setItem("lang", value);
+  }
+
+  getLanguage() {
+    return localStorage.getItem("lang");
   }
 
   setPublicKey(value: string){
@@ -19,5 +20,14 @@ export class LocalStorageService {
   getPublicKey() {
     return localStorage.getItem("key");
   }
+
+  setHash(value:string){
+    return localStorage.setItem("hash", value);
+  }
+
+  getHash(){
+    return localStorage.getItem("hash");
+  }
+
 
 }
