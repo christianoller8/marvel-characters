@@ -1,14 +1,14 @@
 <mat-card>
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="verify()">
       <p>
         <mat-form-field>
           <input
             type="text"
             matInput
-            placeholder="Username"
-            formControlName="username"
+            placeholder="Public Key"
+            formControlName="publicKey"
           />
         </mat-form-field>
       </p>
@@ -18,8 +18,8 @@
           <input
             type="password"
             matInput
-            placeholder="Password"
-            formControlName="password"
+            placeholder="Private Key"
+            formControlName="privateKey"
           />
         </mat-form-field>
       </p>
