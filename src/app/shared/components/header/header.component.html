@@ -30,7 +30,11 @@
     <nav>
       <ul>
         <li><a href="#">News</a></li>
-        <li><a href="#">Comics</a></li>
+        <li>
+          <a [routerLink]="['/comics']" routerLinkActive="router-link-active"
+            >Comics</a
+          >
+        </li>
         <li><a href="#">Characters</a></li>
         <li><a href="#">Movies</a></li>
         <li><a href="#">TV Shows</a></li>
