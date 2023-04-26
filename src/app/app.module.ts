@@ -20,17 +20,19 @@ import { CharactersModule } from "./features/characters/characters.module";
 import { SharedModule } from "./shared/shared.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./shared/components/material/material.module";
+import { LoginComponent } from "./features/login/login/login.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
 
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ComicsModule,
     CharactersModule,
     SharedModule,
     MaterialModule,
-    AppRoutingModule,
+
     NgxPaginationModule,
     BreadcrumbModule,
     HttpClientModule,
