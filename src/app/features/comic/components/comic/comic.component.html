@@ -1,6 +1,4 @@
-<div
-  class="card overflow-hidden mx-3"
->
+<!-- <div class="card overflow-hidden mx-3">
   <img
     src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
     class="card-img-top img-fluid h-100"
@@ -10,4 +8,23 @@
           <h5 class="card-title">{{ comic.title }}</h5>
           <p class="card-text">{{ comic.description }}</p>
         </div> -->
+<!-- </div> -->
+<div class="comic-image">
+  <div class="overflow-hidden">
+    <div class="flex flex-wrap align-items-center justify-content-center">
+      <div
+        class="comic-image bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3"
+      >
+        <img
+          src="{{ comic.thumbnail!.path }}.{{ comic.thumbnail!.extension }}"
+          class="card-img-top img-fluid h-100"
+          alt="{{ comic.title }}"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <h5 class="card-title">{{ comic.title }}</h5>
+  <!-- <p class="card-text">{{ comic.description }}</p> -->
 </div>

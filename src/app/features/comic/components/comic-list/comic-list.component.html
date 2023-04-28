@@ -1,6 +1,6 @@
 <div class="container title">
   <div class="row">
-    <div class="col text-center">
+    <div class="title-comic col text-center">
       <h2>{{ info.title }}</h2>
     </div>
   </div>
@@ -8,7 +8,8 @@
 
 <div class="container">
   <div class="comic-list">
-    <div class="comic-item"
+    <div
+      class="comic-item"
       *ngFor="let comic of comics; let i = index"
       [ngClass]="{ hidden: i >= comics.length / 2 && hidden }"
     >
@@ -20,7 +21,11 @@
 <div class="container">
   <div class="row">
     <div class="col text-center">
-      <button class="btn btn-danger" *ngIf="hidden" (click)="loadMore()">
+      <button
+        class="load-button btn btn-danger"
+        *ngIf="hidden"
+        (click)="loadMore()"
+      >
         Load more
       </button>
     </div>
