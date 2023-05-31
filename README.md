@@ -1,200 +1,143 @@
-<div id="top"></div>
-<h1 align="center">
-  <img src="" alt="" width="200"></img>
-  <br><br>
-  [INSERT TITLE]
-</h1>
-<h4 align="center">[insert summary]</h4>
 
-<p align="center">
+<p>
+
 <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular">
-<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript">
-<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Typescript">
-</p>
-<br>
-<mat-spinner [diameter] = "50">
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Angular">
 
-> This project was generated with
-> · Angular CLI: 15.2.5
-> · Node: 18.15.0
-> · Package Manager: npm 9.5.0
-> · OS: win32 x64
+## Christian Oller Vilchez - 09/05/2023
 
-<br>
-<p>Holas</p>
+## About Project 🚀
 
-## Table of Content
+This project corresponds to the second review of the Vueling University. It focuses on showing the learning during the course of the training time.
+It is a project about Marvel in which you have to login and enter an api key and a private key, it generates a hash in the localstorage and you can enter the application.Once inside you can access a welcome page, another one with a list of series and finally, by clicking on the image of one of them, you can see its details.
 
-- [Usage](#usage)
-- [Gists](#gists)
-- [Deploy](#deploy)
-- [Screenshots](#screenshots)
-- [Responsive simulation](#simulation)
-- [Architecture](#architecture)
-- [Gitflow](#gitflow)
-- [SCSS](#scss)
-- [Using Pipes](#pipes)
-- [External Library](#library)
-- [About Me](#about)
-- [License](#license)
+In the project I have implemented:
 
-<a name="usage"/>
+- Multimodule project
+- Login with authentication
+- Logout
+- Hash in the localStorage
+- Interceptor - Personal Spinner
+- Guard
+- Information in Reactive Form
+- Keys in environments
+- Pipes
+- Lazy Loading
+- Unit tests
+- Angular Material
+- Responsive Design
+- Pagination
+- Searchbar ( You can use it with letters or complete names of the series)
 
-## Usage
+I hope you enjoy seeing it as much as I enjoyed creating it, thank you very much, best regards!
 
-### Requirements
+**IMPORTANT!**
 
-- [Git](https://git-scm.com)
-- [Node.js](https://nodejs.org/en/download/)
-- [npm](http://npmjs.com)
+The api Key and the private Key to enter the application are located in the environments folder in the environment.ts file.
 
-### Comands
+### Prerequisites 📋
+
+This project was generated with Angular CLI version 15.2.3.
+This project was generated with Node version 18.15.0
+This project was generated with NPM version 9.5.0
+
+### Build with 🛠️
+
+Visual Studio Code
+
+### Instalation 🔧
 
 ```bash
-  # Clone this repository
-  $ git clone [INSERT REPO URL]
+# Clone this repository
+$ git clone + https://ch-exam2@dev.azure.com/ch-exam2/exam2/_git/exam2
 
-  # Go into the repository
-  $ cd [INSERT PROJECT NAME]
+# Go into the repository
+$ cd exam2
 
-  # Install dependencies
-  $ npm install
+# Install dependencies
+$ npm install
 
-  # Run the app
-  $ npm run start
+# Run the app
+$ ng serve -o
+
 ```
 
-<a name="gists"/>
+### Scafolding 📁
 
-## Gists
+For the organization at folder level I have followed an architecture as organized and scalable as possible within the standard construction, where all files are completely ordered in their respective place and named in the most understandable way possible.
+Here I show an example of such an organization:
 
-My Gist: https://www.notion.so/Gists-4ba34478f67342f7ab422eee8b548551?pvs=4
+![Scafolding](./src/assets/images/scaffolding.jpg)
 
-#### How to implement multilanguage application - Angular
+### ESLint and Prettier 📄
 
-https://gist.github.com/Sandro34BM/bfc1f38bfd9620a0035cddc2b943615a
+This project has both ESLint and Prettier correctly installed and configured using the following commands:
 
-#### How to implement breadcrumb + back button
+```bash
+# Install ESLint
 
-https://gist.github.com/Sandro34BM/369f5aec84ec0c9d8b5650baf09d6648
+npm install @typescript-eslint/eslint-plugin@latest --save-dev
 
-<a name="deploy"/>
+# Configure ESLint
 
-## Deploy
+npm init @eslint/config
 
-Link to Vercel Deploy:
+# Install Prettier
 
-Following the gitflow system, I have considered doing two deploys, one for production and one for development, this way I can test the modifications in the development environment.
+npm install --save-dev --save-exact prettier
 
-- [Development]([URL DEVELOPMENT])
-- [Production]([URL PRODUCTION])
+# Configuration
 
-<a name="screenshots"/>
-
-## Screenshots
-
-### Desktop version:
-
-<div align="center">
-    <img src="" alt="" width="300">
-    </img>
-</div>
-
-### Mobile version:
-
-<div align="center">
-    <img src="" alt="" width="300">
-    </img>
-</div>
-
-<a name="live"/>
-
-## Responsive simulation
-
-[INSERT URL TO UI.DEV]
-
-<a name="architecture"/>
-
-## Architecture
-
-For this project I have used a folder structure keeping in mind the possible scalability of the application. Allowing the files to be found efficiently.
-
-<a name="gitflow"/>
-
-## Gitflow
-
-I wanted to simulate a real working environment where the Gitflow system is used in order to practice and see the possible conflicts that may occur.
-
-<a name="scss"/>
-
-## SCSS
-
-### Variables
-
-To be more flexible with the colour palette used, I store its colours (primary, secondary and tertiary) in variables.
-
-```css
-$primary-color: white;
-$secondary-color: bisque;
-$tertiary-color: grey;
+npm install eslint-config-prettier
 ```
 
-### Mixins
+And configuring both on the .prettierrc file, the package.json for the scripts and the local configurations in Visual Studio Code.
 
-I have used mixins for the section headers, as they use the same style.
+A hook is also configured in the .git folder of the project that prevents you from committing to the master branch to avoid possible problems and encourage you to work on other branches and use pull requests as the correct way to work. Here is an example of what would happen if you try to commit to the master branch:
 
-```css
-@mixin headingPage {
-  font-size: 2.5em;
-  text-align: center;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  padding: 2%;
+### Scripts ⚡
+
+The configured scripts that may be useful to you are the following:
+
+```bash
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve --o",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "prettier": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
+  "lint": "eslint \"**/*.ts\" --ignore-path .gitignore",
+  "lint.fix": "eslint \"**/*.ts\" --fix --ignore-path .gitignore"
 }
-```
-<a name="pipes"/>
-
-## Using Pipes
-
-Pipes used in this project are:
-
-```ts
-{{ lang | uppercase }}    // For language selector
-
-{{ "label" | translate }} // For translation
 
 ```
 
-<a name="library"/>
+### Method of work ✏️
 
-## External Library
+For this project I have implemented the branch work methodology, which consists of not committing or pushing directly to the master branch.
+The idea of this methodology is to work with a feature branch, creating and closing issues in the github project through pull requests, which in this case are accepted by me, but it is useful for the verification of the work and the possible combination of others by being able to make parallel branches and make pull requests.
+I used SourceTree as a tool to manage the branches and the commits, which I find very useful and easy to use.
 
-I have used a personal library for the footer.
+### Notion 📖
 
-```bash
-npm i sandro-footer
+As an organizational tool to store my tutorials, my examples, my documentation and in general everything related to this and all my projects I have used Notion.
+Personally I find it convenient and necessary when making any project both personal and professional as it guarantees a saved in the cloud, a clear and simple organization, both with pages, tables, code ... which undoubtedly makes life much easier when programming.
 
-```
-
-<a name="about"/>
-
-## About Me
-
-<br>
-<div align="center">
-    <img src="https://drive.google.com/uc?id=1g2DEklyiR7XQLeCv1mOhjB6G7_3Yj99g" alt="" width="200">
-    </img> <br> <br>
-    <p>Sandro Bortolotti Montón</p> 
-    <p> sandrobortolotti34@gmail.com</p>
-    <a href="https://www.linkedin.com/in/sandro-bortolotti-478a4b243/">LinkedIn</a>
-</div>
-
-<a name="license"/>
-
-## License
-
-MIT
+https://www.notion.so/product
 
 ---
 
-<p align="right"><a href="#top">🔝</a></p>
-<br>
+
+### Autor ✒️
+
+Christian Oller Vilchez
+christianoller.dev@gmail.com
+
+### Gratitude 🎁
+
+- Thanks to all my colleagues at Vueling University and especially to my trainer Jordi for the knowledge imparted during the course.
+
+---
+
+"This is just the beginning, let's go for it!" ✌️
