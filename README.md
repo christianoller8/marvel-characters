@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular">
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Angular">
 
-## Christian Oller Vilchez - 09/05/2023
+## Christian Oller Vilchez 
 
 ## About Project 🚀
 
@@ -66,8 +66,6 @@ $ ng serve -o
 
 For the organization at folder level I have followed an architecture as organized and scalable as possible within the standard construction, where all files are completely ordered in their respective place and named in the most understandable way possible.
 Here I show an example of such an organization:
-
-![Scafolding](./src/assets/images/scaffolding.jpg)
 
 ### ESLint and Prettier 📄
 
